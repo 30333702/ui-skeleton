@@ -97,7 +97,12 @@
         .sidebar-user .u-name { font-size: .82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px; }
         .sidebar-user .u-role { font-size: .68rem; color: var(--text-muted); }
 
-        .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+        .main {
+            flex: 1; min-width: 0; display: flex; flex-direction: column;
+            background:
+                radial-gradient(1000px 520px at 90% -10%, rgba(99,102,241,.07), transparent 60%),
+                radial-gradient(800px 420px at -10% 110%, rgba(139,92,246,.06), transparent 60%);
+        }
         .main-content { padding: 1.5rem 1.75rem 3rem; max-width: 1400px; width: 100%; margin: 0 auto; }
         .page-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
         .page-title { margin: 0; font-size: 1.35rem; font-weight: 700; display: flex; align-items: center; gap: .6rem; }
@@ -217,17 +222,31 @@
         /* ===== 移动端顶栏 ===== */
         .mobile-topbar {
             display: none; align-items: center; gap: .8rem;
-            padding: .8rem 1rem; background: var(--bg-surface);
+            padding: .7rem 1rem; background: var(--bg-surface);
             border-bottom: 1px solid var(--border);
             position: sticky; top: 0; z-index: 100;
         }
-        .mobile-topbar .brand { font-weight: 700; display: flex; align-items: center; gap: .55rem; }
+        .mobile-topbar .brand {
+            font-weight: 700; display: flex; align-items: center; gap: .55rem;
+            position: absolute; left: 50%; transform: translateX(-50%);
+        }
         .mobile-topbar .logo {
             width: 30px; height: 30px; border-radius: 9px;
             background: var(--accent-grad); display: flex; align-items: center; justify-content: center;
             color: #fff; font-size: .95rem;
         }
-        .offcanvas { background: var(--bg-surface); }
+        .topbar-menu-btn {
+            display: flex; align-items: center; justify-content: center;
+            width: 38px; height: 38px; border: none; background: transparent;
+            border-radius: 10px; color: var(--text); font-size: 1.45rem;
+            flex-shrink: 0; transition: background .15s;
+        }
+        .topbar-menu-btn:hover { background: var(--bg-hover); }
+        .topbar-menu-btn:active { background: var(--bg-hover); }
+        .offcanvas {
+            --bs-offcanvas-width: 280px;
+            background: var(--bg-surface);
+        }
         .offcanvas .nav-link { color: var(--text-muted); border-radius: 10px; padding: .65rem .8rem; display: flex; align-items: center; gap: .7rem; }
         .offcanvas .nav-link:hover { background: var(--bg-hover); color: var(--text); }
         .offcanvas .nav-link.active { background: var(--accent-grad); color: #fff; }
@@ -299,7 +318,7 @@
         <div class="main">
             <!-- 移动端顶栏 -->
             <div class="mobile-topbar d-md-none">
-                <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileDrawer">
+                <button class="topbar-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileDrawer">
                     <i class="bi bi-list"></i>
                 </button>
                 <div class="brand">
