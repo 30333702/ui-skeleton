@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}登录 - {{ brand }}{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+    <div class="auth-card">
+        <div class="auth-logo"><i class="bi {{ brand_icon }}"></i></div>
+        <div class="auth-title">{{ brand }}</div>
+        <div class="auth-sub">登录你的账号</div>
+        <div class="card">
+            <div class="card-body p-4">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label">邮箱</label>
+                        <input type="email" name="email" class="form-control" placeholder="you@example.com" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">密码</label>
+                        <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">登 录</button>
+                </form>
+            </div>
+        </div>
+        <p class="text-center mt-3 mb-0" style="font-size:.8rem;color:var(--text-muted)">
+            还没有账号？<a href="/register" style="color:var(--accent-2)">立即注册</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

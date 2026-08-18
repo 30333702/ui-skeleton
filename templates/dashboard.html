@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block title %}控制台 - {{ brand }}{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1 class="page-title"><i class="bi bi-speedometer2"></i> 控制台</h1>
+        <div class="page-sub">示例页面 — 展示本骨架所有组件</div>
+    </div>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="bi bi-plus-lg"></i> 新建
+    </button>
+</div>
+
+<!-- 统计卡片：改 col-md-3 col-6 为 col-12 即可上下堆叠 -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3 col-6">
+        <div class="card stat-card h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="stat-icon bg-grad-indigo"><i class="bi bi-key"></i></div>
+                <div>
+                    <div class="stat-label">API Keys</div>
+                    <div class="stat-value">12</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card stat-card h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="stat-icon bg-grad-green"><i class="bi bi-hdd-rack"></i></div>
+                <div>
+                    <div class="stat-label">可用服务</div>
+                    <div class="stat-value">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card stat-card h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="stat-icon bg-grad-amber"><i class="bi bi-people"></i></div>
+                <div>
+                    <div class="stat-label">用户</div>
+                    <div class="stat-value">8</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card stat-card h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="stat-icon bg-grad-sky"><i class="bi bi-arrow-left-right"></i></div>
+                <div>
+                    <div class="stat-label">总请求数</div>
+                    <div class="stat-value">42,871</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 表格 -->
+<div class="card mb-4">
+    <div class="card-header"><i class="bi bi-table"></i> 数据列表</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>状态</th>
+                        <th>请求</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-semibold">示例条目 A</td>
+                        <td><span class="badge bg-success">启用</span></td>
+                        <td>1,234</td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-semibold">示例条目 B</td>
+                        <td><span class="badge bg-secondary">禁用</span></td>
+                        <td>56</td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-semibold">示例条目 C</td>
+                        <td><span class="badge bg-warning">待审核</span></td>
+                        <td>0</td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- 使用说明 / tip -->
+<div class="card mb-4">
+    <div class="card-header"><i class="bi bi-info-circle"></i> 使用说明</div>
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="tip-box">
+                    <i class="bi bi-person-badge"></i>
+                    <div class="w-100">
+                        <strong class="d-block mb-1" style="font-size:.85rem">方式一：HTTP Header</strong>
+                        <div class="code-block">curl -H "Authorization: Bearer &lt;your_api_key&gt;"<br>  https://example.com/api/...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="tip-box">
+                    <i class="bi bi-link-45deg"></i>
+                    <div class="w-100">
+                        <strong class="d-block mb-1" style="font-size:.85rem">方式二：URL 参数</strong>
+                        <div class="code-block">curl "https://example.com/api/...?key=&lt;your_api_key&gt;"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 空状态 -->
+<div class="card">
+    <div class="card-header"><i class="bi bi-inbox"></i> 空状态示例</div>
+    <div class="card-body">
+        <div class="empty-state">
+            <i class="bi bi-inbox"></i>
+            <div>暂无数据</div>
+            <small class="text-muted">这是空状态提示</small>
+        </div>
+    </div>
+</div>
+
+<!-- 弹窗示例 -->
+<div class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i>新建</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">名称</label>
+                        <input type="text" class="form-control" placeholder="输入名称">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">类型</label>
+                        <select class="form-select">
+                            <option>选项一</option>
+                            <option>选项二</option>
+                        </select>
+                    </div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="switch1">
+                        <label class="form-check-label" for="switch1">启用开关</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
